@@ -1,0 +1,85 @@
+.job-abstractdirectory-block .column-one{
+	float: left;
+	width: 73.2%;
+	padding: 1.2%;
+	padding-left: 0;
+	margin-top: 12px;
+}
+.job-abstractdirectory-block .column-two{
+	float: left;
+	width: 24.4%;
+	padding: 0 1.2%;
+	padding-right: 0;
+	margin-top: 22px;
+}
+.job-abstractdirectory-block ul.folder-vertical{
+	list-style-type: none;
+}
+.job-abstractdirectory-block ul.folder-vertical li{
+	background: url(/media/frontoffice/folder.png) no-repeat;
+	text-align: left;
+	padding: 2px 0 2px 20px;
+}
+.job-abstractdirectory-block ul.folder-horizontal{
+	list-style-type: none;
+	margin-top: 12px;
+	margin-bottom: 6px;
+}
+.job-abstractdirectory-block ul.folder-horizontal li{
+	display: inline;
+	background: url(/media/frontoffice/breadcrumb_subfolder.png) no-repeat 0 .1em;
+	padding: 2px 0 2px 40px;
+}
+.job-abstractdirectory-block ul.folder-horizontal li.first{
+	background: none;
+	padding: 2px 0 2px 0;
+}
+.job-abstractdirectory-block ul.folder-horizontal li img{
+	margin-right: 6px;
+	vertical-align: middle;
+}
+.job-abstractdirectory-block table{
+	border-collapse: collapse;
+	border-spacing: 0px;
+	width: 100%;
+}
+.job-abstractdirectory-block thead tr th{
+	font-weight: bold;
+	text-align: left;
+	padding: 1%;
+	border-bottom: 1px solid #000;
+}
+.job-abstractdirectory-block tbody tr td{
+	border-bottom: 1px dotted #000;
+	border-right: hidden;
+	border-left: hidden;
+	padding: 1%;
+}
+.job-abstractdirectory-block tfoot tr td{
+	padding: 1%;
+}
+.job-block dl{
+	margin: 20px 0 20px 0;
+	position: relative;
+	width: 100%;
+	top: 0;
+	left: 0;
+}
+.job-block dt{
+	margin: 0;
+	padding-bottom: 5px;
+	float: left;
+	width: 30%;
+	display: block;
+	text-align: right;
+}
+.job-block dd{
+	margin: 0;
+	padding-bottom: 5px;
+	margin-left: 32%;
+	border-left: 1px solid #000;
+	display: block;
+	padding-left: 2%;
+}
+
+@import url(/modules/job/style/frontoffice.!xul.all.css);

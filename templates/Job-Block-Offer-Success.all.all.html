@@ -1,0 +1,5 @@
+<div class="offer-block">
+  <h3><a change:link="document item" tal:content="item/getLabel"/></h3>
+  <small><span change:date="format 'd/m/Y'; value item/getStartpublicationdate" /> <span tal:condition="item/getReference">- <span tal:replace="item/getReference"/></span></small>
+  <p tal:content="summary" />
+</div>

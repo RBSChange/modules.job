@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<behaviour>
+
+	<event type="select contextmenu" actions="-startValidation exportCsv" target="modules_job_candidacy"/>
+	<event type="select contextmenu" actions="-startValidation exportCsv" target="modules_job_spontaneouscandidacy"/>
+	<event type="select contextmenu" actions="deactivated reactivate exportCsv" target="modules_job_offer"/>
+	<event type="select contextmenu" actions="-delete -edit activate deactivated reactivate exportCsv" target="modules_job_spontaneousoffer"/>
+	
+	<datasource module="job" components="modules_job/offer,modules_job/spontaneousoffer,modules_job/candidacy,modules_job/spontaneouscandidacy" order="startpublicationdate/desc"/>
+	
+	<columns for-parent-type="modules_website_topic">
+		<column ref="label" flex="3" label="Label" properties="type"/>
+		<column ref="offertype" flex="1" label="Offertype"/>
+		<column ref="endpublicationdate" flex="2" label="Depositlimit"/>
+		<column ref="candidacycount" flex="2" label="Candidacycount"/>
+	</columns>
+	
+	<columns for-parent-type="modules_job_offer">
+		<column ref="label" flex="2" label="Identity" properties="type"/>
+		<column ref="creationdate" flex="1" label="ReceiptDate" />
+		<column ref="modifdate" flex="1" label="ResponseSendDate" />
+	</columns>
+	
+	<columns for-parent-type="modules_generic_folder">
+		<column ref="label" flex="2" label="Identity" properties="type"/>
+		<column ref="creationdate" flex="1" label="ReceiptDate" />
+		<column ref="modifdate" flex="1" label="ResponseSendDate" />
+	</columns>
+	
+	<columns>
+		<column ref="label" flex="7" label="Label" properties="type"/>
+	</columns>
+
+</behaviour>

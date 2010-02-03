@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<blocks>
+	<block type="modules_job_contextuallist" display="displaycontainerlabel: true; order: manual; navigation: onlycontainer" icon="money2" label="&amp;modules.job.bo.blocks.ContextualList;">
+		<parameters>
+			<parameter name="displaycontainerlabel" type="Boolean" default-value="true" />
+			<parameter name="order" type="String" list-id="modules_abstractdirectory/blockdisplayorder" default-value="manual" />
+			<parameter name="navigation" type="String" list-id="modules_abstractdirectory/blockdisplaynavigation" default-value="onlycontainer" />
+		</parameters>
+	</block>
+       
+	<block type="modules_job_topic" display="displaycontainerlabel: true; order: manual; navigation: onlycontainer" hidden="true">
+		<parameters>
+			<parameter name="displaycontainerlabel" type="Boolean" default-value="true" />
+			<parameter name="order" type="String" list-id="modules_abstractdirectory/blockdisplayorder" default-value="manual" />
+			<parameter name="navigation" type="String" list-id="modules_abstractdirectory/blockdisplaynavigation" default-value="onlycontainer" />
+		</parameters>
+	</block>
+       
+    <block type="modules_job_detail"
+       display=""
+       icon="money2"
+       label="&amp;modules.job.bo.blocks.Detail;" />
+</blocks>

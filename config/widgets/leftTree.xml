@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<behaviour>
+  <event type="drop" target="modules_website_topic" flavour="listitem/component" source="modules_job_offer" actions="move"/>
+  <event type="drop" target="modules_generic_rootfolder" flavour="listitem/component" source="modules_website_topic" actions="move"/>
+  <event type="select contextmenu" target="modules_website_topic" actions="createOffer editPermissions -rename -delete remove" />
+  <event type="select contextmenu" target="modules_generic_rootfolder" actions="-openOrderChildren addTopic | editPermissions -createFolder"/>
+  <event type="select contextmenu" target="modules_generic_folder" actions="-createFolder -delete -openOrderChildren -viewInformation"/>
+  <datasource module="job" components="modules_website/topic,modules_job/offer,modules_job/spontaneousoffer,modules_generic/folder"/>
+  <columns>
+    <column ref="label" flex="5" label="Module-name" primary="true" properties="type"/>
+  </columns>
+</behaviour>

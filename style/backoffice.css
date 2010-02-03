@@ -1,0 +1,15 @@
+treechildren::-moz-tree-image(modules_job_offer){
+	list-style-image: url(/icons/small/hand_paper.png) ;
+}
+treechildren::-moz-tree-image(modules_job_candidacy){
+	list-style-image: url(/icons/small/handshake.png) ;
+}
+treechildren::-moz-tree-image(modules_job_spontaneousoffer){
+	list-style-image: url(/icons/small/hand_offer.png) ;
+}
+treechildren::-moz-tree-image(modules_job_spontaneouscandidacy){
+	list-style-image: url(/icons/small/handshake.png) ;
+}
+treechildren::-moz-tree-image(modules_job_preferences){
+	list-style-image: url(/icons/small/hand_paper.png) ;
+}

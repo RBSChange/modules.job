@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" xmlns:xul="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" xmlns:i18n="http://phptal.motion-twin.com/i18n" xmlns:tal="http://phptal.motion-twin.com/tal" xmlns:change="http://www.rbs-change.eu/change-4.2/taglib/phptal">
+  <tabbox flex="1">
+    <tabs>
+      <tab i18n:attributes="label &amp;modules.job.document.offer.GeneralitiesSpaced;" change:icon="information/small shadow"/>
+      <tab i18n:attributes="label &amp;modules.job.document.offer.PresentationSpaced;" change:icon="text/small shadow"/>
+      <tab i18n:attributes="label &amp;modules.job.document.offer.ComplementSpaced;" change:icon="gear_add/small shadow"/>
+      <tab i18n:attributes="label &amp;modules.job.document.offer.PublicationSpaced;" change:icon="clock/small shadow"/>
+    </tabs>
+    <tabpanels flex="1">
+      <tabpanel anonid="general" orient="vertical">
+        <grid flex="1">
+          <columns>
+            <column/>
+            <column flex="1"/>
+          </columns>
+          <rows>
+            <row>
+              <change:label xmlns:change="http://www.rbs-change.eu/change-4.2/taglib/phptal" field="label"/>
+              <change:field xmlns:change="http://www.rbs-change.eu/change-4.2/taglib/phptal" name="label"/>
+            </row>
+            <row>
+              <change:label xmlns:change="http://www.rbs-change.eu/change-4.2/taglib/phptal" field="reference"/>
+              <change:field xmlns:change="http://www.rbs-change.eu/change-4.2/taglib/phptal" name="reference"/>
+            </row>
+            <row>
+              <change:label xmlns:change="http://www.rbs-change.eu/change-4.2/taglib/phptal" field="offertypeitem"/>
+              <change:field xmlns:change="http://www.rbs-change.eu/change-4.2/taglib/phptal" name="offertypeitem"/>
+            </row>
+          </rows>
+        </grid>
+      </tabpanel>
+      <tabpanel anonid="presentation" orient="vertical">
+        <grid flex="1">
+          <columns>
+            <column/>
+            <column flex="1"/>
+          </columns>
+          <rows>
+            <row>
+              <change:label xmlns:change="http://www.rbs-change.eu/change-4.2/taglib/phptal" field="presentation"/>
+              <change:field xmlns:change="http://www.rbs-change.eu/change-4.2/taglib/phptal" name="presentation"/>
+            </row>
+          </rows>
+        </grid>
+      </tabpanel>
+      <tabpanel anonid="complement" orient="vertical">
+        <grid flex="1">
+          <columns>
+            <column/>
+            <column flex="1"/>
+          </columns>
+          <rows>
+            <row>
+              <change:label xmlns:change="http://www.rbs-change.eu/change-4.2/taglib/phptal" field="location"/>
+              <change:field xmlns:change="http://www.rbs-change.eu/change-4.2/taglib/phptal" name="location"/>
+            </row>
+            <row>
+              <change:label xmlns:change="http://www.rbs-change.eu/change-4.2/taglib/phptal" field="background"/>
+              <change:field xmlns:change="http://www.rbs-change.eu/change-4.2/taglib/phptal" name="background"/>
+            </row>
+            <row>
+              <change:label xmlns:change="http://www.rbs-change.eu/change-4.2/taglib/phptal" field="profile"/>
+              <change:field xmlns:change="http://www.rbs-change.eu/change-4.2/taglib/phptal" name="profile"/>
+            </row>
+          </rows>
+        </grid>
+      </tabpanel>
+      <tabpanel anonid="publication" orient="vertical">
+        <grid flex="1">
+          <columns>
+            <column/>
+            <column flex="1"/>
+          </columns>
+          <rows>
+            <row>
+              <change:label xmlns:change="http://www.rbs-change.eu/change-4.2/taglib/phptal" field="startpublicationdate"/>
+              <change:field xmlns:change="http://www.rbs-change.eu/change-4.2/taglib/phptal" name="startpublicationdate"/>
+            </row>
+            <row>
+              <change:label xmlns:change="http://www.rbs-change.eu/change-4.2/taglib/phptal" field="endpublicationdate"/>
+              <change:field xmlns:change="http://www.rbs-change.eu/change-4.2/taglib/phptal" name="endpublicationdate"/>
+            </row>
+          </rows>
+        </grid>
+      </tabpanel>
+    </tabpanels>
+  </tabbox>
+</layout>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<localization path="modules/job/locale/bo/workflow.xml">
+
+	<entity id="ValidOffer.User-task-title">
+		<locale lang="fr">valider le contenu d'une offre d'emploi</locale>
+		<locale lang="en" overridden="true"></locale>
+	</entity>
+	<entity id="ValidOffer.Accept">
+		<locale lang="fr">accepter</locale>
+		<locale lang="en" overridden="true"></locale>
+	</entity>
+	<entity id="ValidOffer.Refuse">
+		<locale lang="fr">refuser</locale>
+		<locale lang="en" overridden="true"></locale>
+	</entity>
+	<entity id="ValidOffer.User-task-help">
+		<locale lang="fr">offre d'emploi</locale>
+		<locale lang="en" overridden="true"></locale>
+	</entity>
+	<entity id="ValidOffer.User-task-decision-commentary">
+		<locale lang="fr">commentaire</locale>
+		<locale lang="en" overridden="true"></locale>
+	</entity>
+	
+	<entity id="CandidacyHandling.User-task-title">
+		<locale lang="fr">traiter la candidature</locale>
+		<locale lang="en" overridden="true"></locale>
+	</entity>	
+	<entity id="CandidacyHandling.Accept">
+		<locale lang="fr">accepter</locale>
+		<locale lang="en" overridden="true"></locale>
+	</entity>
+	<entity id="CandidacyHandling.Refuse">
+		<locale lang="fr">refuser</locale>
+		<locale lang="en" overridden="true"></locale>
+	</entity>
+	<entity id="CandidacyHandling.AcceptAndSendMail">
+		<locale lang="fr">accepter et envoyer un mail</locale>
+		<locale lang="en" overridden="true"></locale>
+	</entity>
+	<entity id="CandidacyHandling.RefuseAndSendMail">
+		<locale lang="fr">refuser et envoyer un mail</locale>
+		<locale lang="en" overridden="true"></locale>
+	</entity>
+	<entity id="CandidacyHandling.User-task-help">
+		<locale lang="fr">traiter la candidature</locale>
+		<locale lang="en" overridden="true"></locale>
+	</entity>
+	<entity id="CandidacyHandling.ListOfDefaultNotification">
+		<locale lang="fr">liste des notifications par défaut</locale>
+		<locale lang="en" overridden="true"></locale>
+	</entity>
+	<entity id="CandidacyHandling.Subject">
+		<locale lang="fr">sujet du message</locale>
+		<locale lang="en" overridden="true"></locale>
+	</entity>
+	<entity id="CandidacyHandling.Body">
+		<locale lang="fr">corps du message</locale>
+		<locale lang="en" overridden="true"></locale>
+	</entity>
+	<entity id="CandidacyHandling.DefaultAcceptNotification">
+		<locale lang="fr" overridden="true">notification d'acceptation par défaut</locale>
+		<locale lang="en" overridden="true"></locale>
+	</entity>
+	<entity id="CandidacyHandling.DefaultRefuseNotification">
+		<locale lang="fr">notification de refus par défaut</locale>
+		<locale lang="en" overridden="true"></locale>
+	</entity>
+	<entity id="CandidacyHandling.AvailableParameters">
+		<locale lang="fr">paramètres autorisés</locale>
+		<locale lang="en" overridden="true"></locale>
+	</entity>
+</localization>

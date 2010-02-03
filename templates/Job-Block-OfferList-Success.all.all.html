@@ -1,0 +1,21 @@
+<table class="normal" i18n:attributes="summary &modules.job.frontoffice.tableListHeader.Summary;">
+    <caption i18n:translate="&modules.job.frontoffice.tableListHeader.Caption;" />
+	<thead>
+		<tr>
+			<th i18n:translate="&modules.job.frontoffice.tableListHeader.Date;"/>
+			<th i18n:translate="&modules.job.frontoffice.tableListHeader.Post;"/>
+			<th i18n:translate="&modules.job.frontoffice.tableListHeader.OfferType;"/>
+			<th i18n:translate="&modules.job.frontoffice.tableListHeader.Localisation;"/>
+		</tr>
+	</thead>
+	<tbody>
+        <span tal:repeat="item items" tal:omit-tag="">
+    		<tr class="odd" tal:condition="repeat/item/odd">
+    			<span change:include="module 'job';template 'Job-Block-ListOffer-Success'; type 'html'; item item" />
+    		</tr>
+    		<tr class="even" tal:condition="repeat/item/even">
+    			<span change:include="module 'job';template 'Job-Block-ListOffer-Success'; type 'html'; item item" />
+    		</tr>
+		</span>
+	</tbody>
+</table>

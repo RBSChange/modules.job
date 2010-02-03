@@ -1,0 +1,24 @@
+<ul class="mini-navigation">
+	<li><a class="link" change:link="module job; action ViewList; jobParam[cmpref] item/getId" i18n:translate="&modules.job.frontoffice.detail.GoBackToList;" /></li>
+	<span tal:condition="formPage" tal:omit-tag=""><li><a class="link" change:link="document formPage; formParam[offerref] item/getId; formParam[offerlabel] item/getLabel" i18n:translate="&modules.job.frontoffice.detail.RespondToOffer;" /></li></span>
+</ul>
+
+<h3 class="title" tal:content="item/getLabel" />
+<small>[<span change:date="format 'd/m/Y'; value item/getStartpublicationdate" />]<span tal:condition="item/getReference" tal:omit-tag=""> - <span tal:replace="item/getReference"/></span></small>
+<p tal:content="item/getPresentationAsHtml" />
+<div class="cleaner"></div>
+<div class="job-block">
+	<dl>
+		<span tal:condition="item/getEndpublicationdate" tal:omit-tag="">
+			<dt><strong i18n:translate="&modules.job.frontoffice.detail.DepositLimit;" /></dt>
+			<dd><span change:date="format 'l d M Y'; value item/getEndpublicationdate" /></dd>
+		</span>
+		<dt><strong i18n:translate="&modules.job.frontoffice.detail.Location;" /></dt>
+		<dd tal:content="item/getLocation" />
+		<dt><strong i18n:translate="&modules.job.frontoffice.detail.Background;" /></dt>
+		<dd tal:content="item/getBackground" />
+		<dt><strong i18n:translate="&modules.job.frontoffice.detail.Profile;" /></dt>
+		<dd tal:content="item/getProfile" />
+	</dl>
+</div>
+<div class="cleaner"></div>

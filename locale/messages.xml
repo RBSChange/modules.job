@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<localization path="modules/job/locale/messages.xml">
+
+	<entity id="error.EndDateMustBeAfterStartDate">
+		<locale lang="fr">La date de début de publication doit être inférieure à la date de fin</locale>
+		<locale lang="en" overridden="true"></locale>
+	</entity>
+
+</localization>

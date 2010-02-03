@@ -1,0 +1,16 @@
+<div><span tal:omit-tag="" i18n:translate="&amp;modules.job.document.candidacy.TITLEDETAIL;"/></div>
+<div tal:condition="offerinfo" tal:content="offerinfo" />
+<div><span tal:omit-tag="" i18n:translate="&amp;modules.job.document.candidacy.LastnameLabel;"/> <span tal:replace="document/getLastname" /></div>
+<div><span tal:omit-tag="" i18n:translate="&amp;modules.job.document.candidacy.FirstnameLabel;"/> <span tal:replace="document/getFirstname" /></div>
+<div><span tal:omit-tag="" i18n:translate="&amp;modules.job.document.candidacy.BirthdateLabel;"/> <span tal:replace="document/getBirthdate" /></div>
+<div><span tal:omit-tag="" i18n:translate="&amp;modules.job.document.candidacy.Postaladdress1Label;"/> <span tal:replace="document/getPostaladdress1" /></div>
+<div><span tal:omit-tag="" i18n:translate="&amp;modules.job.document.candidacy.Postaladdress2Label;"/> <span tal:replace="document/getPostaladdress2" /></div>
+<div><span tal:omit-tag="" i18n:translate="&amp;modules.job.document.candidacy.Postaladdress3Label;"/> <span tal:replace="document/getPostaladdress3" /></div>
+<div><span tal:omit-tag="" i18n:translate="&amp;modules.job.document.candidacy.PostalcodeLabel;"/> <span tal:replace="document/getPostalcode" /></div>
+<div><span tal:omit-tag="" i18n:translate="&amp;modules.job.document.candidacy.CityLabel;"/> <span tal:replace="document/getCity" /></div>
+<div><span tal:omit-tag="" i18n:translate="&amp;modules.job.document.candidacy.CountryLabel;"/> <span tal:replace="document/getCountry" /></div>
+<div><span tal:omit-tag="" i18n:translate="&amp;modules.job.document.candidacy.EmailLabel;"/> <span tal:replace="document/getEmail" /></div>
+<div><span tal:omit-tag="" i18n:translate="&amp;modules.job.document.candidacy.CvtextLabel;"/> <span tal:replace="document/getCvtext" /></div>
+<div><span tal:omit-tag="" i18n:translate="&amp;modules.job.document.candidacy.CvfileLabel;"/> <a tal:condition="document/getCvfile" change:download="document document/getCvfile" /></div>
+<div><span tal:omit-tag="" i18n:translate="&amp;modules.job.document.candidacy.MotivationtextLabel;"/> <span tal:replace="document/getMotivationtext" /></div>
+<div><span tal:omit-tag="" i18n:translate="&amp;modules.job.document.candidacy.MotivationfileLabel;"/> <a tal:condition="document/getMotivationfile" change:download="document document/getMotivationfile" /></div>

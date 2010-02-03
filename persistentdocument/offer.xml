@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns="http://www.rbs.fr/schema/change-document/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.rbs.fr/schema/change-document/1.0 http://www.rbschange.fr/static/schema/change-document/1.0.xsd" 
+    model-version="1.0" indexable="true" icon="hand_paper">
+	<properties>
+		<add name="publicationstatus" localized="true"/>
+		<add name="label" type="String" min-occurs="1" max-occurs="1" localized="true">
+			<constraints>maxSize:80</constraints>
+		</add>
+		<add name="reference" type="String" min-occurs="0" max-occurs="1"/>
+		<add name="offertypeitem" type="modules_list/item" min-occurs="1" max-occurs="1" from-list="modules_job/offertype"/>
+		<add name="offertype" type="String" min-occurs="1" max-occurs="1" localized="true" />
+		<add name="presentation" type="XHTMLFragment" min-occurs="1" max-occurs="1" localized="true"/>
+		<add name="location" type="LongString" min-occurs="1" max-occurs="1" localized="true"/>
+		<add name="background" type="LongString" min-occurs="1" max-occurs="1" localized="true"/>
+		<add name="profile" type="LongString" min-occurs="1" max-occurs="1" localized="true"/>
+		<add name="candidacycount" type="Integer" min-occurs="1" max-occurs="1" default-value="0"/>
+	</properties>
+	
+	<form>
+		<property name="startpublicationdate" display="edit" required="true" />
+  		<property name="endpublicationdate" enddate="true" display="edit" required="true" />
+  		<property name="offertype" display="hidden"/>
+	</form>
+	
+	<workflow start-task="OFFERVALIDATION">
+		<parameter name="AFFECT_TASKS_TO_SUPER_ADMIN">true</parameter>
+	</workflow>
+</document>

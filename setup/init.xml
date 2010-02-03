@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script>
+	<binding fileName="modules/list/persistentdocument/import/list_binding.xml" />
+	<binding fileName="modules/form/persistentdocument/import/form_binding.xml" />
+	<binding fileName="modules/workflow/persistentdocument/import/workflow_binding.xml" />
+	<binding fileName="modules/notification/persistentdocument/import/notification_binding.xml" />
+	<binding fileName="modules/job/persistentdocument/import/job_binding.xml" />
+
+	<rootfolder module="preferences">
+		<jobpreferences />
+	</rootfolder>
+		
+	<systemfolder module="list" relatedmodule="job">
+	
+		<editablelist id="l_offertype" listid="modules_job/offertype"
+			label="Type d'offre d'emploi" description="Liste des types des différentes offres d'emploi pour le module job">	
+			<item label="CDI"/>
+			<item label="CDD"/>
+			<item label="Stage"/>
+		</editablelist>	
+
+		<editablelist id="l_country" listid="modules_job/country"
+			label="Liste des pays" description="Liste des pays pour la sélection de l'adresse du candidat">	
+			<item label="France"/>
+			<item label="Autre"/>
+		</editablelist>		
+	</systemfolder>
+	
+	<systemfolder module="notification" relatedmodule="job">	
+			<notification id="n0create"
+				label="Validation du contenu d'une offre d'emploi"
+				codename="modules_job/newOfferValidation"
+				availableparameters="{documentId}, {documentLabel}, {documentLang}, {documentPath}, {workflowId}, {workflowLabel}, {transitionId}, {transitionLabel}, {currentUserId}, {currentUserFullname}, {__LAST_COMMENTARY}, {__LAST_DECISION}"
+				subject="Validation du contenu de l'offre d'emploi n°{documentId} : {documentLabel}"
+				body="Bonjour&lt;br/&gt; Vous recevez ce mail car l'offre d'emploi '{documentLabel}' est en attente de validation de contenu."
+				/>
+				
+			<notification id="n0termination"
+				label="Validation du contenu d'une offre d'emploi effectué"
+				codename="modules_job/OfferValidationTermination"
+				availableparameters="{documentId}, {documentLabel}, {documentLang}, {documentPath}, {workflowId}, {workflowLabel}, {transitionId}, {transitionLabel}, {currentUserId}, {currentUserFullname}, {__LAST_COMMENTARY}, {__LAST_DECISION}"
+				subject="Vous venez de traiter l'offre d'emploi n°{documentId} '{documentLabel}'."
+				body="Bonjour&lt;br/&gt; Votre décision a bien été prise en compte."
+				 />	
+				 
+			<notification id="n0cancellation"
+				label="Validation du contenu d'une offre d'emploi annulé"
+				codename="modules_job/OfferValidationCancellation"
+				availableparameters="{documentId}, {documentLabel}, {documentLang}, {documentPath}, {workflowId}, {workflowLabel}, {transitionId}, {transitionLabel}, {currentUserId}, {currentUserFullname}, {__LAST_COMMENTARY}, {__LAST_DECISION}"
+				subject="L'offre d'emploi n°{documentId} '{documentLabel}' à été traitée."
+				body="Bonjour&lt;br/&gt; L'offre d'emploi n°{documentId} '{documentLabel}' à été traitée."
+				 />	
+	</systemfolder>
+	
+	<systemfolder module="workflow" relatedmodule="job">
+		<workflow starttaskid="OFFERVALIDATION" label="Validation des offres d'emploi">
+		
+			<places>
+				<startplace id="pStart" label="Offre en attente de validation de contenu" 
+					description="Offre d'emploi en attente de publication."/>
+
+				<endplace id="pEnd" label="Contenu vérifié" description="Fin du workflow."/>
+			</places>
+			
+			<transitions>
+				<transition id="t0" label="Validation du contenu d'une offre d'emploi" 
+						description="Le contenu est validé ou refusé."
+						taskid="OFFERVALIDATION" 
+						trigger="USER" roleid="Validator"
+						actionname="job_ValidOfferWorkflowaction" 
+						
+						creationnotification-refid="n0create"
+						terminationnotification-refid="n0termination"
+						cancellationnotification-refid="n0cancellation" />
+			</transitions>
+			
+			<arcs>
+				<arc direction="IN" place-refid="pStart" transition-refid="t0" arctype="SEQ" />
+				<arc direction="OUT" transition-refid="t0"  place-refid="pEnd" arctype="SEQ" />
+			</arcs>
+		</workflow>		
+	</systemfolder>
+	
+	<systemfolder module="form" relatedmodule="job">
+	
+		<form formid="modules_job/respondtooffer" label="Formulaire de réponse à une offre d'emploi" 
+			description="Formulaire utilisé pour répondre à une offre d'emploi publiée sur le site."
+			submitButton="Envoyer" confirmMessage="Nous avons bien reçu votre candidature. Elle sera traitée dans les meilleurs délais."
+			markup="default" useBackLink="true" useCaptcha="true" messageSendingType="1">
+			
+			<fieldhidden fieldName="offerref" label="Référence de l'offre" required="true" />
+			<fieldhidden fieldName="offerlabel" label="Nom de l'offre" required="true" />
+
+			<fieldtext fieldName="firstname" label="Prénom" 
+				required="true" multiline="false" cols="50" maxlength="255"
+				validators="blank:false;maxSize:255" />		
+
+			<fieldtext fieldName="lastname" label="Nom" 
+				required="true" multiline="false" cols="50" maxlength="255"
+				validators="blank:false;maxSize:255" />	
+				
+			<fieldtext fieldName="birthdate" label="Date de naissance" 
+				required="true" multiline="false" cols="20" maxlength="50"
+				validators="blank:false;maxSize:50" />					
+				
+			<fieldtext fieldName="postaladdress1" label="Adresse postale, ligne 1" 
+				required="true" multiline="false" cols="50" maxlength="255"
+				validators="blank:false;maxSize:255" />	
+				
+			<fieldtext fieldName="postaladdress2" label="Adresse postale, ligne 2" 
+				required="false" multiline="false" cols="50" maxlength="255"
+				validators="maxSize:255" />
+				
+			<fieldtext fieldName="postaladdress3" label="Adresse postale, ligne 3" 
+				required="false" multiline="false" cols="50" maxlength="255"
+				validators="maxSize:255" />
+																
+			<fieldtext fieldName="postalcode" label="Code postal" 
+				required="true" multiline="false" cols="10" maxlength="20"
+				validators="blank:false;maxSize:20" />	
+						
+			<fieldtext fieldName="city" label="Ville" 
+				required="true" multiline="false" cols="50" maxlength="255"
+				validators="blank:false;maxSize:255" />	
+												
+			<fieldlist fieldName="country" label="Pays" display="list"
+					required="true" dataSource-refid="l_country" />								
+								
+			<fieldtext fieldName="receiverIds" label="Adresse e-mail" 
+				required="true" multiline="false" cols="50" maxlength="255"
+				validators="blank:false;maxSize:255;minSize:0;email:true" />
+			
+			<fieldtext fieldName="cvtext" label="CV texte" 
+				required="true" multiline="true" cols="50" rows="10" maxlength="65000"
+				validators="blank:false;maxSize:65000" />			
+			
+			<fieldfile fieldName="cvfile" label="CV fichier" 
+				allowedExtensions="doc,pdf,rtf" />	
+				
+			<fieldtext fieldName="motivationtext" label="Motivation texte" 
+				required="true" multiline="true" cols="50" rows="10" maxlength="65000"
+				validators="blank:false;maxSize:65000" />			
+			
+			<fieldfile fieldName="motivationfile" label="Motivation fichier" 
+				allowedExtensions="doc,pdf,rtf" />																						
+		</form>	
+	</systemfolder>
+	
+	<systemfolder module="notification" relatedmodule="job">	
+			<notification codename="modules_job/respondtooffer_notification"
+				subject="Votre candidature pour le poste de {offerlabel}"
+				body="{lastname} {firstname},&lt;br\&gt;&lt;br\&gt;
+Nous accusons réception de votre dossier de candidature pour le poste de {offerlabel}.&lt;br\&gt;
+Nous l'étudierons après clôture de l'offre, et vous tiendrons informé.&lt;br\&gt;&lt;br\&gt;
+Nous vous remercions de l'intérêt que vous portez à notre entreprise.&lt;br\&gt;&lt;br\&gt;
+Service RH" />
+	</systemfolder>
+	
+	<systemfolder module="form" relatedmodule="job">
+	
+		<form formid="modules_job/spontaneouscandidacy" label="Formulaire de candidature spontanée" 
+			description="Formulaire utilisé pour déposer une candidature spontanée."
+			submitButton="Envoyer" confirmMessage="Nous avons bien reçu votre candidature. Elle sera traitée dans les meilleurs délais."
+			markup="default" useBackLink="true" useCaptcha="true" messageSendingType="1">
+			
+			<fieldtext fieldName="firstname" label="Prénom" 
+				required="true" multiline="false" cols="50" maxlength="255"
+				validators="blank:false;maxSize:255" />		
+
+			<fieldtext fieldName="lastname" label="Nom" 
+				required="true" multiline="false" cols="50" maxlength="255"
+				validators="blank:false;maxSize:255" />	
+				
+			<fieldtext fieldName="birthdate" label="Date de naissance" 
+				required="true" multiline="false" cols="20" maxlength="50"
+				validators="blank:false;maxSize:50" />					
+				
+			<fieldtext fieldName="postaladdress1" label="Adresse postale, ligne 1" 
+				required="true" multiline="false" cols="50" maxlength="255"
+				validators="blank:false;maxSize:255" />	
+				
+			<fieldtext fieldName="postaladdress2" label="Adresse postale, ligne 2" 
+				required="false" multiline="false" cols="50" maxlength="255"
+				validators="maxSize:255" />
+				
+			<fieldtext fieldName="postaladdress3" label="Adresse postale, ligne 3" 
+				required="false" multiline="false" cols="50" maxlength="255"
+				validators="maxSize:255" />
+																
+			<fieldtext fieldName="postalcode" label="Code postal" 
+				required="true" multiline="false" cols="10" maxlength="20"
+				validators="blank:false;maxSize:20" />	
+						
+			<fieldtext fieldName="city" label="Ville" 
+				required="true" multiline="false" cols="50" maxlength="255"
+				validators="blank:false;maxSize:255" />	
+												
+			<fieldlist fieldName="country" label="Pays" display="list"
+					required="true" dataSource-refid="l_country" />								
+								
+			<fieldtext fieldName="receiverIds" label="Adresse e-mail" 
+				required="true" multiline="false" cols="50" maxlength="255"
+				validators="blank:false;maxSize:255;minSize:0;email:true" />
+			
+			<fieldtext fieldName="cvtext" label="CV texte" 
+				required="true" multiline="true" cols="50" rows="10" maxlength="65000"
+				validators="blank:false;maxSize:65000" />			
+			
+			<fieldfile fieldName="cvfile" label="CV fichier" 
+				allowedExtensions="doc,pdf,rtf" />	
+				
+			<fieldtext fieldName="motivationtext" label="Motivation texte" 
+				required="true" multiline="true" cols="50" rows="10" maxlength="65000"
+				validators="blank:false;maxSize:65000" />			
+			
+			<fieldfile fieldName="motivationfile" label="Motivation fichier" 
+				allowedExtensions="doc,pdf,rtf" />																						
+		</form>	
+	</systemfolder>
+
+	<systemfolder module="notification" relatedmodule="job">	
+			<notification codename="modules_job/spontaneouscandidacy_notification"
+				subject="Votre candidature"
+				body="{lastname} {firstname},&lt;br\&gt;&lt;br\&gt;
+Nous accusons réception de votre dossier de candidature.&lt;br\&gt;
+Nous l'étudierons dans les meilleurs délais, et vous tiendrons informé.&lt;br\&gt;&lt;br\&gt;
+Nous vous remercions de l'intérêt que vous portez à notre entreprise.&lt;br\&gt;&lt;br\&gt;
+Service RH" />
+	</systemfolder>
+	
+	<rootfolder module="job">
+		<spontaneousoffer label="Candidatures spontanées" />
+	</rootfolder>
+	
+	<systemfolder module="notification" relatedmodule="job">	
+		<notification codename="modules_job/candidacyAccepted"
+			label="Notification par défaut d'acceptation de la candidature"
+			availableparameters="{offerlabel}, {lastname}, {firstname}"
+			subject="Votre candidature pour le poste de {offerlabel}"
+			body="{lastname} {firstname},&lt;br\&gt;&lt;br\&gt;Nous sommes heureux de vous informer que votre candidature a été retenue pour le poste de {offerlabel}.&lt;br\&gt;&lt;br\&gt;Service RH" 
+		/>
+		
+		<notification codename="modules_job/candidacyRefused"
+			label="Notification par défaut de refus de la candidature"
+			availableparameters="{offerlabel}, {lastname}, {firstname}"
+			subject="Votre candidature pour le poste de {offerlabel}"
+			body="{lastname} {firstname},&lt;br\&gt;&lt;br\&gt;Nous avons étudié avec attention votre dossier de candidature pour le poste de {offerlabel}.&lt;br\&gt;Nous informons que nous ne sommes pas en mesure de lui réserver une suite favorable.&lt;br\&gt;Nous vous remercions de l'intérêt que vous portez à notre entreprise.&lt;br\&gt;&lt;br\&gt;Service RH" 
+		/>
+		
+		<notification codename="modules_job/spontaneousCandidacyAccepted"
+			label="Notification par défaut d'acceptation de la candidature spontanée"
+			availableparameters="{lastname}, {firstname}"
+			subject="Votre candidature"
+			body="{lastname} {firstname},&lt;br\&gt;&lt;br\&gt;Nous sommes heureux de vous informer que votre candidature a été retenue.&lt;br\&gt;&lt;br\&gt;Service RH" 
+		/>
+		
+		<notification codename="modules_job/spontaneousCandidacyRefused"
+			label="Notification par défaut de refus de la candidature spontanée"
+			availableparameters="{lastname}, {firstname}"
+			subject="Votre candidature"
+			body="{lastname} {firstname},&lt;br\&gt;&lt;br\&gt;Nous avons étudié avec attention votre dossier de candidature. Nous vous informons que nous ne sommes pas en mesure de lui réserver une suite favorable.&lt;br\&gt;Nous ne disposons à l'heure actuelle d'aucun poste à pourvoir correspondant à votre formation et à votre expérience professionnelle.&lt;br\&gt;&lt;br\&gt;Nous vous remercions de l'intérêt que vous portez à notre entreprise.&lt;br\&gt;&lt;br\&gt;Service RH" 
+		/>
+	</systemfolder>
+	
+	
+	<systemfolder module="notification" relatedmodule="job">	
+			<notification id="n1create"
+				label="Candidature en attente de traitement"
+				codename="modules_job/candidacyWaitHandling"
+				availableparameters="{documentId}, {documentLabel}, {documentLang}, {documentPath}, {workflowId}, {workflowLabel}, {transitionId}, {transitionLabel}, {currentUserId}, {currentUserFullname}, {__LAST_COMMENTARY}, {__LAST_DECISION}"
+				subject="Validation de la candidature n°{documentId} : {documentLabel}"
+				body="Bonjour&lt;br/&gt; Vous recevez ce mail car la candidature '{documentLabel}' est en attente de traitement."
+				/>
+				
+			<notification id="n1termination"
+				label="Validation de la candidature traitée"
+				codename="modules_job/candidacyHandled"
+				availableparameters="{documentId}, {documentLabel}, {documentLang}, {documentPath}, {workflowId}, {workflowLabel}, {transitionId}, {transitionLabel}, {currentUserId}, {currentUserFullname}, {__LAST_COMMENTARY}, {__LAST_DECISION}"
+				subject="Vous venez de traiter la candidature n°{documentId} '{documentLabel}'."
+				body="Bonjour&lt;br/&gt; Votre décision a bien été prise en compte."
+				 />	
+				 
+			<notification id="n1cancellation"
+				label="Validation de la candidature annulée"
+				codename="modules_job/candidacyHandlingCancelled"
+				availableparameters="{documentId}, {documentLabel}, {documentLang}, {documentPath}, {workflowId}, {workflowLabel}, {transitionId}, {transitionLabel}, {currentUserId}, {currentUserFullname}, {__LAST_COMMENTARY}, {__LAST_DECISION}"
+				subject="La candidature n°{documentId} '{documentLabel}' à été traitée."
+				body="Bonjour&lt;br/&gt; La candidature n°{documentId} '{documentLabel}' à été traitée."
+				 />	
+	</systemfolder>
+	
+	<systemfolder module="workflow" relatedmodule="job">
+		<workflow starttaskid="CANDIDACYHANDLING" label="Traitement d'une candidature">
+		
+			<places>
+				<startplace id="pStart" label="Candidature en attente de traitement" 
+					description="Candidature en attente de traitement."/>
+
+				<endplace id="pEnd" label="Candidature traitrée" description="Fin du workflow."/>
+			</places>
+			
+			<transitions>
+				<transition id="t0" label="Traitement de la candidature" 
+						description="Acceptation ou refus de la candidature avec envoi ou non de mail."
+						taskid="CANDIDACYHANDLING" 
+						trigger="USER" roleid="CandidacyHandler"
+						actionname="job_CandidacyHandlingWorkflowaction" 
+						
+						creationnotification-refid="n1create"
+						terminationnotification-refid="n1termination"
+						cancellationnotification-refid="n1cancellation" />
+			</transitions>
+			
+			<arcs>
+				<arc direction="IN" place-refid="pStart" transition-refid="t0" arctype="SEQ" />
+				<arc direction="OUT" transition-refid="t0"  place-refid="pEnd" arctype="SEQ" />
+			</arcs>
+		</workflow>		
+	</systemfolder>	
+	
+	
+	<systemfolder module="notification" relatedmodule="job">	
+			<notification id="n2create"
+				label="Candidature spontanée en attente de traitement"
+				codename="modules_job/spontaneousCandidacyWaitHandling"
+				availableparameters="{documentId}, {documentLabel}, {documentLang}, {documentPath}, {workflowId}, {workflowLabel}, {transitionId}, {transitionLabel}, {currentUserId}, {currentUserFullname}, {__LAST_COMMENTARY}, {__LAST_DECISION}"
+				subject="Validation de la candidature spontanée n°{documentId} : {documentLabel}"
+				body="Bonjour&lt;br/&gt; Vous recevez ce mail car la candidature spontanée '{documentLabel}' est en attente de traitement."
+				/>
+				
+			<notification id="n2termination"
+				label="Validation de la candidature spontanée traitée"
+				codename="modules_job/spontaneousCandidacyWaitHandling"
+				availableparameters="{documentId}, {documentLabel}, {documentLang}, {documentPath}, {workflowId}, {workflowLabel}, {transitionId}, {transitionLabel}, {currentUserId}, {currentUserFullname}, {__LAST_COMMENTARY}, {__LAST_DECISION}"
+				subject="Vous venez de traiter la candidature spontanée n°{documentId} '{documentLabel}'."
+				body="Bonjour&lt;br/&gt; Votre décision a bien été prise en compte."
+				 />	
+				 
+			<notification id="n2cancellation"
+				label="Validation de la candidature spontanée annulée"
+				codename="modules_job/spontaneousCandidacyHandlingCancelled"
+				availableparameters="{documentId}, {documentLabel}, {documentLang}, {documentPath}, {workflowId}, {workflowLabel}, {transitionId}, {transitionLabel}, {currentUserId}, {currentUserFullname}, {__LAST_COMMENTARY}, {__LAST_DECISION}"
+				subject="La candidature spontanée n°{documentId} '{documentLabel}' à été traitée."
+				body="Bonjour&lt;br/&gt; La candidature spontanée n°{documentId} '{documentLabel}' à été traitée."
+				 />	
+	</systemfolder>
+	
+	<systemfolder module="workflow" relatedmodule="job">
+		<workflow starttaskid="SPONTANEOUSCANDIDACYHANDLING" label="Traitement d'une candidature spontanée">
+		
+			<places>
+				<startplace id="pStart" label="Candidature spontanée en attente de traitement" 
+					description="Candidature spontanée en attente de traitement."/>
+
+				<endplace id="pEnd" label="Candidature spontanée traitrée" description="Fin du workflow."/>
+			</places>
+			
+			<transitions>
+				<transition id="t0" label="Traitement de la candidature spontanée" 
+						description="Acceptation ou refus de la candidature spontanée avec envoi ou non de mail."
+						taskid="SPONTANEOUSCANDIDACYHANDLING" 
+						trigger="USER" roleid="SpontaneousCandidacyHandler"
+						actionname="job_SpontaneousCandidacyHandlingWorkflowaction" 
+						
+						creationnotification-refid="n2create"
+						terminationnotification-refid="n2termination"
+						cancellationnotification-refid="n2cancellation" />
+			</transitions>
+			
+			<arcs>
+				<arc direction="IN" place-refid="pStart" transition-refid="t0" arctype="SEQ" />
+				<arc direction="OUT" transition-refid="t0"  place-refid="pEnd" arctype="SEQ" />
+			</arcs>
+		</workflow>		
+	</systemfolder>	
+	
+</script>

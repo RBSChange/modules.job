@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<style tal:replace="cssInclusion"/>
+<window
+	id="ChangeUserTask"
+	i18n:attributes="title &amp;modules.job.bo.workflow.CandidacyHandling.User-task-title;"
+	xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+    <span tal:replace="scriptInclusion" />
+
+    <script type="text/javascript">
+    //<![CDATA[
+    var acceptNotif = ${notificationAccept};
+    var refuseNotif = ${notificationRefuse};
+    
+    var parameters = '';
+    
+    function UserTaskViewer()
+    {
+    	this.taskId = ${task/getId};
+		this.controller = document.getElementById("wcontroller");
+
+		this.accept = function(sendMail)
+		{
+			document.getElementById('acceptButton').disabled = true;
+			document.getElementById('refuseButton').disabled = true;	
+			document.getElementById('acceptAndSendMailButton').disabled = true;
+			document.getElementById('refuseAndSendMailButton').disabled = true;
+			this.submitDecision('ACCEPTED', sendMail);
+		}
+
+		this.refuse = function(sendMail)
+		{
+			document.getElementById('acceptButton').disabled = true;
+			document.getElementById('refuseButton').disabled = true;
+			document.getElementById('acceptAndSendMailButton').disabled = true;
+			document.getElementById('refuseAndSendMailButton').disabled = true;
+			this.submitDecision('REFUSED', sendMail);
+		}
+
+		this.submitDecision = function(decision, sendMail)
+		{
+			var params = new wControllerExecuteParameters();
+			params.actionLabel = '&amp;modules.task.bo.general.Accept;';
+			params.senderObject = this;
+			params.module = 'task';
+			params.action = 'RunUserTask';
+			params.requestParameters = {
+				cmpref: this.taskId,
+				decision: decision,
+				commentary: '${document/getLabel}',
+				sendmail: sendMail,
+				messageSubject : document.getElementById('subject').value,
+				messageBody : document.getElementById('body').value
+				};
+			params.httpMethod = 'POST';
+			this.controller.executeWithParameters(params);
+		}
+
+		this.onRunUserTaskSuccess = function(e4x)
+		{
+			window.Dashboard.closeDetail();
+		}
+
+		this.notificationSelect = function(value)
+		{
+			var disabled = (value != "") ? false : true;
+			var notificationdata = document.getElementById('notificationdata');
+			
+			var subjectField = document.getElementById('subject');
+			var bodyField = document.getElementById('body');
+			var paramsField = document.getElementById('parameters');
+			
+			if (!disabled)
+			{
+				//notificationdata.removeAttribute('hidden');
+				if (value == 'accept')
+				{
+					subjectField.value = acceptNotif.subject;
+					bodyField.value = acceptNotif.body;
+					paramsField.value = acceptNotif.authorizedParams;
+				}
+				else
+				{
+					subjectField.value = refuseNotif.subject;
+					bodyField.value = refuseNotif.body;
+					paramsField.value = refuseNotif.authorizedParams;
+				}
+			}
+			else
+			{
+				subjectField.value = '';
+				bodyField.value = '';
+				paramsField.value = '';
+				//notificationdata.setAttribute('hidden', 'true');
+			}
+		}
+		
+    }
+
+	window.addEventListener('load', function() {
+    	window.userTaskViewer = new UserTaskViewer();
+    	}, false);
+
+	window.resizeTo(850,600);
+	
+	function downloadFile(id, lang)
+	{
+		var parameters = {cmpref:id, lang:lang, forceDownload: true};
+		window.opener.wToolkit.opener.parent.window.wToolkit.openlink('media', 'Display', parameters);
+	}
+    //]]>
+    </script>
+
+    <wcontroller flex="1" id="wcontroller">
+		<toolbox>
+			<toolbar>
+				<label i18n:attributes="value &amp;modules.job.bo.workflow.CandidacyHandling.User-task-title;" style="font-weight: bold; font-size: 12pt;" />
+				<toolbarspacer flex="1" />
+				<toolbarbutton id="acceptButton" oncommand="userTaskViewer.accept(false);" i18n:attributes="label &amp;modules.job.bo.workflow.CandidacyHandling.AcceptSpaced;" change:icon="media_play_green/small"/>
+				<toolbarbutton id="acceptAndSendMailButton" oncommand="userTaskViewer.accept(true);" i18n:attributes="label &amp;modules.job.bo.workflow.CandidacyHandling.AcceptAndSendMailSpaced;" change:icon="media_play_green/small" disabled="true">
+					<observes element="form" attribute="disabled" />
+				</toolbarbutton>
+				<toolbarbutton id="refuseButton" oncommand="userTaskViewer.refuse(false);" i18n:attributes="label &amp;modules.job.bo.workflow.CandidacyHandling.RefuseSpaced;" change:icon="media_stop_red/small"/>
+				<toolbarbutton id="refuseAndSendMailButton" oncommand="userTaskViewer.refuse(true);" i18n:attributes="label &amp;modules.job.bo.workflow.CandidacyHandling.RefuseAndSendMailSpaced;" change:icon="media_stop_red/small" disabled="true" >
+					<observes element="form" attribute="disabled" />
+				</toolbarbutton>
+			</toolbar>
+		</toolbox>
+		<scrollbox style='overflow: auto;' flex="1" orient="vertical">
+			<grid flex="1" class="preview">
+					<columns>
+						<column/>
+						<column flex="1"/>
+					</columns>
+					<rows>
+						<row>
+							<label change:translate="&amp;modules.job.document.candidacy.LastnameLabel;"></label>
+							<label><![CDATA[${document/getLastname}]]></label>
+						</row>
+						<row>
+							<label change:translate="&amp;modules.job.document.candidacy.FirstnameLabel;"></label>
+							<label><![CDATA[${document/getFirstname}]]></label>
+						</row>
+						<row>
+							<label change:translate="&amp;modules.job.document.candidacy.BirthdateLabel;"></label>
+							<label><![CDATA[${document/getBirthdate}]]></label>
+						</row>
+						<row>
+							<label change:translate="&amp;modules.job.document.candidacy.Postaladdress1Label;"></label>
+							<label><![CDATA[${document/getPostaladdress1}]]></label>
+						</row>
+						<row>
+							<label change:translate="&amp;modules.job.document.candidacy.Postaladdress2Label;"></label>
+							<label><![CDATA[${document/getPostaladdress2}]]></label>
+						</row>
+						<row>
+							<label change:translate="&amp;modules.job.document.candidacy.Postaladdress3Label;"></label>
+							<label><![CDATA[${document/getPostaladdress3}]]></label>
+						</row>
+						<row>
+							<label change:translate="&amp;modules.job.document.candidacy.PostalcodeLabel;"></label>
+							<label><![CDATA[${document/getPostalcode}]]></label>
+						</row>
+						<row>
+							<label change:translate="&amp;modules.job.document.candidacy.CityLabel;"></label>
+							<label><![CDATA[${document/getCity}]]></label>
+						</row>
+						<row>
+							<label change:translate="&amp;modules.job.document.candidacy.CountryLabel;"></label>
+							<label><![CDATA[${document/getCountry}]]></label>
+						</row>
+						<row>
+							<label change:translate="&amp;modules.job.document.candidacy.EmailLabel;"></label>
+							<label><![CDATA[${document/getEmail}]]></label>
+						</row>
+						<row>
+							<label change:translate="&amp;modules.job.document.candidacy.CvtextLabel;"></label>
+							<box xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" xmlns:html="http://www.w3.org/1999/xhtml"><html:div style="width:400px;" xmlns="http://www.w3.org/1999/xhtml">${document/getCvtextAsHtml}</html:div></box>
+						</row>
+						<row tal:condition="document/getCvfile">
+							<label change:translate="&amp;modules.job.document.candidacy.CvfileLabel;"></label>
+							<label class="text-link" onclick="downloadFile(${document/getCvfile/getId}, '${document/getCvfile/getLang}');">${document/getCvfile/getLabel}</label>
+						</row>
+						<row>
+							<label change:translate="&amp;modules.job.document.candidacy.MotivationtextLabel;"></label>
+							<box xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" xmlns:html="http://www.w3.org/1999/xhtml"><html:div style="width:400px;" xmlns="http://www.w3.org/1999/xhtml">${document/getMotivationtextAsHtml}</html:div></box>
+						</row>
+						<row tal:condition="document/getMotivationfile">
+							<label change:translate="&amp;modules.job.document.candidacy.MotivationfileLabel;"></label>
+							<label class="text-link" onclick="downloadFile(${document/getMotivationfile/getId}, '${document/getMotivationfile/getLang}');">${document/getMotivationfile/getLabel}</label>
+						</row>
+					</rows>
+				</grid>
+			</scrollbox>
+			<box style="border:1px solid #000000;"/>
+			<vbox>
+				<wform standalone="true" id="form">
+					<vbox>
+						<label control="notification" change:translate="&amp;modules.job.bo.workflow.CandidacyHandling.ListOfDefaultNotificationLabel;" />
+						<menulist id="notification" oncommand="userTaskViewer.notificationSelect(this.value);">
+							<menupopup>
+								<menuitem id="empty" value="" label="" />
+								<menuitem id="accept" value="accept" i18n:attributes="label &amp;modules.job.bo.workflow.CandidacyHandling.DefaultAcceptNotification;" />
+								<menuitem id="refuse" value="refuse" i18n:attributes="label &amp;modules.job.bo.workflow.CandidacyHandling.DefaultRefuseNotification;" />
+							</menupopup>
+						</menulist>
+						<grid flex="1" class="preview">
+						<columns>
+							<column/>
+							<column flex="1"/>
+						</columns>
+						<rows>
+							<row>
+							<label control="subject" change:translate="&amp;modules.job.bo.workflow.CandidacyHandling.SubjectLabel;" />
+							<wtextbox name="subject" id="subject" flex="1" style="margin-bottom:2px" >
+							 	<constraint name="blank">false</constraint>
+							</wtextbox>
+							</row>
+							<row>
+							<vbox>
+								<label control="body" change:translate="&amp;modules.job.bo.workflow.CandidacyHandling.BodyLabel;" />
+								<label change:translate="&amp;modules.job.bo.workflow.CandidacyHandling.AvailableParameters;" />
+								<label id="parameters" flex="1" style="margin-bottom:2px" /> 
+							</vbox>
+							<wrichtext width="500" name="body" id="body" flex="1">
+							 	<constraint name="blank">false</constraint>
+							</wrichtext>							
+							</row>
+						</rows>
+					</grid>
+					</vbox>
+				</wform>
+			</vbox>
+	</wcontroller>
+</window>

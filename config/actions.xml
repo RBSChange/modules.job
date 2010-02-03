@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<actions extends="generic">
+  <action name="createOffer" label="&amp;modules.job.bo.actions.Create-Offer;" icon="add">
+    <parameter name="listWidget"/>
+    <body><![CDATA[this.createDocument(listWidget, this.name, 'offer', 'moduleForm');]]></body>
+  </action>
+  
+	<action name="edit" label="&amp;modules.uixul.bo.actions.Edit;" icon="document_edit">
+		<parameter name="listWidget" />
+		<body><![CDATA[
+			var components = listWidget.getSelectedComponents();
+			if (components.document.length() == 1)
+			{
+				var doc = components.document[0];
+				type = doc.component.(@name=="type").toString();
+				if (type == 'modules_job_candidacy' || type == 'modules_job_spontaneouscandidacy')
+				{
+					// this will load the iframe (see perspective).
+					listWidget.setAttribute('editcomponent', components.toString());					
+
+					// show the message box
+					this.getElementById("viewCandidacyBox").removeAttribute('collapsed');
+				}
+				else
+				{
+					if (this.isContextLangAvailable(components.document[0]))
+	    		    {
+	    			    var form = document.getElementById("modules_"+this.name+"_widget_moduleForm");
+	    				if (form != null) {form.resetDefaultActions();}
+	    				// intbonjf 2007-01-16:
+	    				// For the broadcast to operate each time we request the edit action,
+	    				// the value of the 'editcomponent' attribute must change.
+	    				listWidget.removeAttribute('editcomponent');
+	    			    listWidget.setAttribute('editcomponent', components.toString());
+	    			}
+	    			else if (confirm("&modules.uixul.bo.general.translation.Confirm-translate-from;"))
+	    			{
+	    			    this.translateFrom(listWidget);
+	    			}
+				}
+			}
+		]]></body>
+	</action>
+</actions>

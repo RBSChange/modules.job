@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<script>
+	<binding fileName="modules/generic/persistentdocument/import/generic_binding.xml" />
+
+	<binding name="preferences" className="job_PreferencesScriptDocumentElement" />
+	<binding name="jobpreferences" className="job_PreferencesScriptDocumentElement" />
+	
+	<binding name="spontaneousoffer" className="job_SpontaneousofferScriptDocumentElement" />
+	<binding name="offer" className="job_OfferScriptDocumentElement" />
+	<binding name="spontaneouscandidacy" className="job_SpontaneouscandidacyScriptDocumentElement" />
+	<binding name="candidacy" className="job_CandidacyScriptDocumentElement" />
+</script>

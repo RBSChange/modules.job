@@ -1,0 +1,32 @@
+<div tal:attributes="class php:'abstractdirectory-block ' . moduleName . '-abstractdirectory-block'">
+
+	<h2 class="title" tal:condition="displaycontainerlabel" tal:content="container/getLabel" />
+		
+	<span tal:condition="formSpontaneousCandidacyPage" tal:omit-tag="">
+		<ul class="mini-navigation">
+			<li><a class="link" change:link="document formSpontaneousCandidacyPage" i18n:translate="&modules.job.frontoffice.SpontaneousCandidacy;" /></li>
+		</ul>
+	</span>
+
+	<div>
+		<div class="column-one">
+			<span tal:condition="not: messageContent" tal:replace="itemsContent"/>
+			<span tal:condition="messageContent" tal:replace="messageContent" />
+		</div>
+	
+		<div class="column-two">
+			<span tal:condition="menu" tal:omit-tag="">
+				<h3 class="title" i18n:translate="&modules.abstractdirectory.frontoffice.SubContainerMenuTitle;" />
+				<ul change:menu="menuObject menu; itemName item; maxLevel 1; masterUlClass folder-vertical" tal:omit-tag="">
+					<a class="link" tal:attributes="href item/getUrl" tal:content="item/getLabel" />
+				</ul>
+			</span>
+		</div>
+		
+		<div class="cleaner" />
+		
+	</div>
+	
+	<span change:paginator="paginator" tal:omit-tag=""/>
+	
+</div>

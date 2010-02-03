@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tags extends="generic">
+	<tag label="&amp;modules.job.bo.tags.offer-list;" icon="link">functional_job_offer-list</tag>
+	<tag label="&amp;modules.job.bo.tags.offer-detail;" icon="link">functional_job_offer-detail</tag>
+	<tag label="&amp;modules.job.bo.tags.responseform;" icon="form_blue">contextual_website_website_modules_job-responseform</tag>
+	<tag label="&amp;modules.job.bo.tags.spontaneouscandidacyform;" icon="form_blue">contextual_website_website_modules_job-spontaneouscandidacyform</tag>
+</tags>

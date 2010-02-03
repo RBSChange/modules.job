@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<localization path="modules/job/locale/bo/blocks.xml">
+
+	<entity id="ContextualList">
+		<locale lang="fr">liste d'offre d'emploi</locale>
+		<locale lang="en">jobs list</locale>
+	</entity>
+	
+	<entity id="Detail">
+		<locale lang="fr">détail d'une offre d'emploi</locale>
+		<locale lang="en" overridden="true"></locale>
+	</entity>
+
+</localization>

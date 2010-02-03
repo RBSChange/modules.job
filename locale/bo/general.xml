@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<localization path="modules/job/locale/bo/general.xml">
+
+	<entity id="module-name">
+		<locale lang="fr" overridden="true">offres d'emploi</locale>
+		<locale lang="en" overridden="true">job offers</locale>
+	</entity>
+
+	<entity id="tree-root-name">
+		<locale lang="fr" overridden="true">offres d'emploi</locale>
+		<locale lang="en" overridden="true">job offers</locale>
+	</entity>
+
+	<entity id="system-folder-name">
+		<locale lang="fr" overridden="true">offres d'emploi</locale>
+		<locale lang="en" overridden="true">job offers</locale>
+	</entity>
+
+</localization>
