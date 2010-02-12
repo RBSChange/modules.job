@@ -21,6 +21,7 @@
 			<permission name="Move.*" />
 			<permission name="GetDialogTopicTree" />
 			<permission name="Remove.topic" />
+			<permission name="EditLocale"/>
 		</role>
 
 		<role name="Writer" extend="Guest">
