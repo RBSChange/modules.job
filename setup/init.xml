@@ -149,10 +149,10 @@
 	<systemfolder module="notification" relatedmodule="job">	
 			<notification codename="modules_job/respondtooffer_notification"
 				subject="Votre candidature pour le poste de {offerlabel}"
-				body="{lastname} {firstname},&lt;br\&gt;&lt;br\&gt;
-Nous accusons réception de votre dossier de candidature pour le poste de {offerlabel}.&lt;br\&gt;
-Nous l'étudierons après clôture de l'offre, et vous tiendrons informé.&lt;br\&gt;&lt;br\&gt;
-Nous vous remercions de l'intérêt que vous portez à notre entreprise.&lt;br\&gt;&lt;br\&gt;
+				body="{lastname} {firstname},&lt;br/&gt;&lt;br/&gt;
+Nous accusons réception de votre dossier de candidature pour le poste de {offerlabel}.&lt;br/&gt;
+Nous l'étudierons après clôture de l'offre, et vous tiendrons informé.&lt;br/&gt;&lt;br/&gt;
+Nous vous remercions de l'intérêt que vous portez à notre entreprise.&lt;br/&gt;&lt;br/&gt;
 Service RH" />
 	</systemfolder>
 	
@@ -221,10 +221,10 @@ Service RH" />
 	<systemfolder module="notification" relatedmodule="job">	
 			<notification codename="modules_job/spontaneouscandidacy_notification"
 				subject="Votre candidature"
-				body="{lastname} {firstname},&lt;br\&gt;&lt;br\&gt;
-Nous accusons réception de votre dossier de candidature.&lt;br\&gt;
-Nous l'étudierons dans les meilleurs délais, et vous tiendrons informé.&lt;br\&gt;&lt;br\&gt;
-Nous vous remercions de l'intérêt que vous portez à notre entreprise.&lt;br\&gt;&lt;br\&gt;
+				body="{lastname} {firstname},&lt;br/&gt;&lt;br/&gt;
+Nous accusons réception de votre dossier de candidature.&lt;br/&gt;
+Nous l'étudierons dans les meilleurs délais, et vous tiendrons informé.&lt;br/&gt;&lt;br/&gt;
+Nous vous remercions de l'intérêt que vous portez à notre entreprise.&lt;br/&gt;&lt;br/&gt;
 Service RH" />
 	</systemfolder>
 	
@@ -237,28 +237,28 @@ Service RH" />
 			label="Notification par défaut d'acceptation de la candidature"
 			availableparameters="{offerlabel}, {lastname}, {firstname}"
 			subject="Votre candidature pour le poste de {offerlabel}"
-			body="{lastname} {firstname},&lt;br\&gt;&lt;br\&gt;Nous sommes heureux de vous informer que votre candidature a été retenue pour le poste de {offerlabel}.&lt;br\&gt;&lt;br\&gt;Service RH" 
+			body="{lastname} {firstname},&lt;br/&gt;&lt;br/&gt;Nous sommes heureux de vous informer que votre candidature a été retenue pour le poste de {offerlabel}.&lt;br/&gt;&lt;br/&gt;Service RH" 
 		/>
 		
 		<notification codename="modules_job/candidacyRefused"
 			label="Notification par défaut de refus de la candidature"
 			availableparameters="{offerlabel}, {lastname}, {firstname}"
 			subject="Votre candidature pour le poste de {offerlabel}"
-			body="{lastname} {firstname},&lt;br\&gt;&lt;br\&gt;Nous avons étudié avec attention votre dossier de candidature pour le poste de {offerlabel}.&lt;br\&gt;Nous informons que nous ne sommes pas en mesure de lui réserver une suite favorable.&lt;br\&gt;Nous vous remercions de l'intérêt que vous portez à notre entreprise.&lt;br\&gt;&lt;br\&gt;Service RH" 
+			body="{lastname} {firstname},&lt;br/&gt;&lt;br/&gt;Nous avons étudié avec attention votre dossier de candidature pour le poste de {offerlabel}.&lt;br/&gt;Nous informons que nous ne sommes pas en mesure de lui réserver une suite favorable.&lt;br/&gt;Nous vous remercions de l'intérêt que vous portez à notre entreprise.&lt;br/&gt;&lt;br/&gt;Service RH" 
 		/>
 		
 		<notification codename="modules_job/spontaneousCandidacyAccepted"
 			label="Notification par défaut d'acceptation de la candidature spontanée"
 			availableparameters="{lastname}, {firstname}"
 			subject="Votre candidature"
-			body="{lastname} {firstname},&lt;br\&gt;&lt;br\&gt;Nous sommes heureux de vous informer que votre candidature a été retenue.&lt;br\&gt;&lt;br\&gt;Service RH" 
+			body="{lastname} {firstname},&lt;br/&gt;&lt;br/&gt;Nous sommes heureux de vous informer que votre candidature a été retenue.&lt;br/&gt;&lt;br/&gt;Service RH" 
 		/>
 		
 		<notification codename="modules_job/spontaneousCandidacyRefused"
 			label="Notification par défaut de refus de la candidature spontanée"
 			availableparameters="{lastname}, {firstname}"
 			subject="Votre candidature"
-			body="{lastname} {firstname},&lt;br\&gt;&lt;br\&gt;Nous avons étudié avec attention votre dossier de candidature. Nous vous informons que nous ne sommes pas en mesure de lui réserver une suite favorable.&lt;br\&gt;Nous ne disposons à l'heure actuelle d'aucun poste à pourvoir correspondant à votre formation et à votre expérience professionnelle.&lt;br\&gt;&lt;br\&gt;Nous vous remercions de l'intérêt que vous portez à notre entreprise.&lt;br\&gt;&lt;br\&gt;Service RH" 
+			body="{lastname} {firstname},&lt;br/&gt;&lt;br/&gt;Nous avons étudié avec attention votre dossier de candidature. Nous vous informons que nous ne sommes pas en mesure de lui réserver une suite favorable.&lt;br/&gt;Nous ne disposons à l'heure actuelle d'aucun poste à pourvoir correspondant à votre formation et à votre expérience professionnelle.&lt;br/&gt;&lt;br/&gt;Nous vous remercions de l'intérêt que vous portez à notre entreprise.&lt;br/&gt;&lt;br/&gt;Service RH" 
 		/>
 	</systemfolder>
 	
