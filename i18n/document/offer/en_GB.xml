@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.job.document.offer" lcid="en_GB">
+  <key id="document-name">job offer</key>
+  <key id="reference">reference</key>
+  <key id="location">location</key>
+  <key id="location-help">job location</key>
+</i18n>

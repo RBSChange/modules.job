@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.job.bo.workflow.validoffer" lcid="fr_FR">
+  <key id="user-task-title">valider le contenu d'une offre d'emploi</key>
+  <key id="accept">accepter</key>
+  <key id="refuse">refuser</key>
+  <key id="user-task-help">offre d'emploi</key>
+  <key id="user-task-decision-commentary">commentaire</key>
+</i18n>

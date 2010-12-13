@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.job.bo.widgets.mainlist" lcid="fr_FR">
+  <key id="label">libellé</key>
+  <key id="offertype">type de l'offre</key>
+  <key id="depositlimit">date limite de dépôt</key>
+  <key id="candidacycount">Nombre de candidatures reçues</key>
+  <key id="identity">prénom - nom</key>
+  <key id="receiptdate">date de réception de la candidature</key>
+  <key id="responsesenddate">date de traitement</key>
+</i18n>

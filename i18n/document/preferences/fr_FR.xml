@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.job.document.preferences" lcid="fr_FR">
+  <key id="document-name">préférences</key>
+  <key id="edition-form-title">Edition des préférences</key>
+  <key id="nbitemperpage">nombre d'offres par page</key>
+  <key id="nbitemperpage-help">indiquer ici le nombre d'offres maximale affichées par page</key>
+  <key id="msgforemptyfolder">texte pour dossier vide</key>
+  <key id="msgforemptyfolder-help">texte à afficher à la place de la liste des offres lorsqu'une rubrique est vide</key>
+</i18n>

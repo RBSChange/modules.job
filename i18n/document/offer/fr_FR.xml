@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.job.document.offer" lcid="fr_FR">
+  <key id="document-name">offre d'emploi</key>
+  <key id="edition-form-title">édition d'une offre d'emploi</key>
+  <key id="startpublicationdate">date de début de publication</key>
+  <key id="startpublicationdate-help">date de début de publication de l'offre sur le iste</key>
+  <key id="endpublicationdate">date de fin de publication</key>
+  <key id="endpublicationdate-help">date de fin de publication de l'offre sur le site</key>
+  <key id="label">nom</key>
+  <key id="label-help">nom de l'offre d'emploi</key>
+  <key id="reference">référence</key>
+  <key id="reference-help">numéro de référence de l'offre</key>
+  <key id="offertypeitem">type de contrat</key>
+  <key id="offertypeitem-help">sélectionner le type de contrat</key>
+  <key id="depositlimit">date limite de dépôt de candidature</key>
+  <key id="depositlimit-help">préciser la date limite de dépôt de candidature</key>
+  <key id="presentation">description de l'offre</key>
+  <key id="presentation-help">détailler l'offre proposée</key>
+  <key id="location">localisation</key>
+  <key id="location-help">localisation du poste</key>
+  <key id="background">expérience</key>
+  <key id="background-help">expérience requise pour l'offre d'emploi</key>
+  <key id="profile">profil</key>
+  <key id="profile-help">profil recherché pour le poste</key>
+  <key id="generalities">généralités</key>
+  <key id="complement">complément</key>
+  <key id="publication">publication</key>
+  <key id="offertype">type de contrat</key>
+  <key id="offertype-help">sélectionner le type de contrat proposé</key>
+</i18n>

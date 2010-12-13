@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.job.bo.tags" lcid="fr_FR">
+  <key id="offer-list">page de liste</key>
+  <key id="offer-detail">détail d'une offre</key>
+  <key id="responseform">formulaire de candidature à une offre</key>
+  <key id="spontaneouscandidacyform">formulaire de candidature spontanée</key>
+</i18n>

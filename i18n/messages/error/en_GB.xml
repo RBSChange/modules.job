@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.job.messages.error" lcid="en_GB">
+  <key id="enddatemustbeafterstartdate"></key>
+</i18n>

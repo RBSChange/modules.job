@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.job.bo.general" lcid="fr_FR">
+  <key id="module-name">offre d'emploi</key>
+  <key id="tree-root-name">offre d'emploi</key>
+  <key id="system-folder-name">offre d'emploi</key>
+</i18n>

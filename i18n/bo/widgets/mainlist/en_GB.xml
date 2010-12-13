@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.job.bo.widgets.mainlist" lcid="en_GB">
+  <key id="label">offers/Candidates</key>
+  <key id="offertype">contract type</key>
+  <key id="depositlimit">end date of announcement</key>
+  <key id="candidacycount">number of candidates received</key>
+  <key id="identity">first name - Last name</key>
+  <key id="receiptdate">date candidate response received</key>
+  <key id="responsesenddate">processing date</key>
+</i18n>

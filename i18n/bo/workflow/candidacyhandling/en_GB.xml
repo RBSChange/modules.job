@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.job.bo.workflow.candidacyhandling" lcid="en_GB">
+  <key id="user-task-title"></key>
+  <key id="accept"></key>
+  <key id="refuse"></key>
+  <key id="acceptandsendmail"></key>
+  <key id="refuseandsendmail"></key>
+  <key id="user-task-help"></key>
+  <key id="listofdefaultnotification"></key>
+  <key id="subject"></key>
+  <key id="body"></key>
+  <key id="defaultacceptnotification"></key>
+  <key id="defaultrefusenotification"></key>
+  <key id="availableparameters"></key>
+</i18n>

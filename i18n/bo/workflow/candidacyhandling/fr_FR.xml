@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.job.bo.workflow.candidacyhandling" lcid="fr_FR">
+  <key id="user-task-title">traiter la candidature</key>
+  <key id="accept">accepter</key>
+  <key id="refuse">refuser</key>
+  <key id="acceptandsendmail">accepter et envoyer un mail</key>
+  <key id="refuseandsendmail">refuser et envoyer un mail</key>
+  <key id="user-task-help">traiter la candidature</key>
+  <key id="listofdefaultnotification">liste des notifications par défaut</key>
+  <key id="subject">sujet du message</key>
+  <key id="body">corps du message</key>
+  <key id="defaultacceptnotification">notification d'acceptation par défaut</key>
+  <key id="defaultrefusenotification">notification de refus par défaut</key>
+  <key id="availableparameters">paramètres autorisés</key>
+</i18n>

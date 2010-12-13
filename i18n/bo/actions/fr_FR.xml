@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.job.bo.actions" lcid="fr_FR">
+  <key id="create_">Créer</key>
+  <key id="create-offer">Créer une offre d'emploi</key>
+</i18n>

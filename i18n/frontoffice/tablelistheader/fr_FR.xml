@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.job.frontoffice.tablelistheader" lcid="fr_FR">
+  <key id="summary">ce tableau présente l'ensemble des offres d'emploi disponibles</key>
+  <key id="caption">les Offres d'emploi</key>
+  <key id="date">date de l'offre</key>
+  <key id="post">poste</key>
+  <key id="offertype">type de contrat</key>
+  <key id="localisation">localisation</key>
+</i18n>

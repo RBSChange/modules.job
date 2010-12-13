@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<i18n baseKey="m.job.bo.workflow.validoffer" lcid="en_GB">
+  <key id="user-task-title"></key>
+  <key id="accept"></key>
+  <key id="refuse"></key>
+  <key id="user-task-help"></key>
+  <key id="user-task-decision-commentary"></key>
+</i18n>
