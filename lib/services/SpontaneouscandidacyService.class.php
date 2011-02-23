@@ -217,4 +217,23 @@ class job_SpontaneouscandidacyService extends f_persistentdocument_DocumentServi
 	{
 		return false;
 	}
+	
+	/**
+	 * @param job_persistentdocument_spontaneouscandidacy $document
+	 * @param string $moduleName
+	 * @param string $treeType
+	 * @param array<string, string> $nodeAttributes
+	 */	
+	public function addTreeAttributes($document, $moduleName, $treeType, &$nodeAttributes)
+	{
+		$nodeAttributes['creationdate'] = date_DateFormat::format($document->getUICreationdate(), 'D d M Y H:i', RequestContext::getInstance()->getUILang());
+		if ($this->getHandlingdate() != NULL)
+		{
+		    $nodeAttributes['modifdate'] = date_DateFormat::format($document->getUIHandlingdate(), 'D d M Y H:i', RequestContext::getInstance()->getUILang());
+		}
+		else
+		{
+		    $nodeAttributes['modifdate'] = '';
+		}		
+	}
 }

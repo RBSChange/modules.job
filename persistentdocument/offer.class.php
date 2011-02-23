@@ -51,14 +51,4 @@ class job_persistentdocument_offer extends job_persistentdocument_offerbase impl
 		}
 		return $exportedDoc;
 	}
-
-	/**
-	 * @param string $moduleName
-	 * @param string $treeType
-	 * @param array<string, string> $nodeAttributes
-	 */	
-	protected function addTreeAttributes($moduleName, $treeType, &$nodeAttributes)
-	{
-	    $nodeAttributes['offertype'] = $this->getOffertype();
-	}
 }

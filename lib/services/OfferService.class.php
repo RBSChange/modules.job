@@ -70,4 +70,15 @@ class job_OfferService extends f_persistentdocument_DocumentService
 
 		return true;
 	}
+
+	/**
+	 * @param job_persistentdocument_offer $document
+	 * @param string $moduleName
+	 * @param string $treeType
+	 * @param array<string, string> $nodeAttributes
+	 */	
+	public function addTreeAttributes($document, $moduleName, $treeType, &$nodeAttributes)
+	{
+	    $nodeAttributes['offertype'] = $document->getOffertype();
+	}
 }
